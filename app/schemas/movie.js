@@ -42,7 +42,7 @@ MovieSchema.statics =  {
 	//查询所有的数据
 	fetch:function (callback) {
 		return this.find({})
-					.sort('meta.updateAt')
+					.sort({'meta.updateAt':-1})
 					.exec(callback);
 
 	},

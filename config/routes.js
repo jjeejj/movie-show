@@ -63,7 +63,8 @@ module.exports = function (app) {
 	//movie update
 	app.get('/admin/movie/update/:id',User.signinRequired,User.adminRequired,Movie.update);
 	//movie save
-	app.post('/admin/movie/save',User.signinRequired,User.adminRequired,multipartMiddleware,Movie.savePoster,Movie.save);
+	// app.post('/admin/movie/save',User.signinRequired,User.adminRequired,multipartMiddleware,Movie.savePoster,Movie.save);
+	app.post('/admin/movie/save',User.signinRequired,User.adminRequired,Movie.save);
 	//movie list
 	app.get('/admin/movie/list',User.signinRequired,User.adminRequired,Movie.list);
 	//movie delete

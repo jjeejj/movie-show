@@ -38,7 +38,7 @@ CategorySchema.statics =  {
 	fetch:function (callback) {
 		return this.find({})
 					.populate('movies')
-					.sort('meta.createAt')
+					.sort({'meta.createAt':-1})
 					.exec(callback);
 
 	},

@@ -161,13 +161,14 @@ exports.save = function (req,res) {
 			// console.log('movieObj:',movieObj);
 			_movie = _.extend(movie,movieObj);
 			console.log('_movie:',_movie);
+			_movie.isNew = false;
 			_movie.save(function (err,movie) {
 				if(err){
 					console.log(err);
 				}
 
 				//重定向到详情页面
-				res.redirect('/movie/'+movie._id)
+				res.redirect('/admin/movie/detail/'+movie._id)
 			});
 		})
 	}else{
@@ -191,7 +192,7 @@ exports.save = function (req,res) {
 		var categoryCus = movieObj.categoryCus;
 		console.log('categotyId----------------',categoryId);
 		console.log('categoryCus----------------',categoryCus);
-
+		_movie.isNew = true;
 		_movie.save(function (err,movie) {
 				if(err){
 					console.log(err);
