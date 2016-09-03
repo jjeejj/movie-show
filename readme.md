@@ -6,3 +6,9 @@ exprss + jade + mongoose
 评论功能
 电影分类
 
+安装
+
+npm install
+
+grunt启动
+

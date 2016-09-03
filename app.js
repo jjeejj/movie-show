@@ -68,7 +68,7 @@ if('development' === env){
 	app.set('showStrackError',true);
 	app.use(logger('dev'));
 	app.locals.pretty = true;
-	mongoose.set('debug',true);
+	// mongoose.set('debug',true); //是否开启mongoose查询打印日志
 }
 app.listen(port)
 
