@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	.container
+		each category in categories
+			if category.movies && category.movies.length >0
+				.panel.panel-default
+					.panel-heading
+						h3 
+							a(href="/index/searchAndPage/?cateId=#{category._id}&page=0",target="_blank") #{category.name}
+					.panel-body
+						- for (var i = 0; i < category.movies.length; i=i+6) {
+							.row
+								each item in category.movies.slice(i,(i+1)*6)
+									.col-md-2
+										.thumbnail
+											a(href="/admin/movie/detail/#{item._id}")
+												img(src="#{item.poster}",alt="#{item.titte}")
+											.caption
+												h3 #{item.title}
+												p: a.btn.btn-primary(href="/admin/movie/detail/#{item._id}",role="button")
+														观看预告片
+						- }
+						
+	br
+	br
+	br
+	br

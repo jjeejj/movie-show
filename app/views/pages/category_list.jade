@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			table.table.table-hover.table-bordered
+				thead
+					tr
+						th 电影分类名
+						th 序号
+						th 查看
+						th 创建时间
+						th 更新
+						th 删除
+				tbody
+					each category in categories
+						tr(class="category-id-#{category._id}")
+							td #{category.name}
+							td #{category.sort}
+							td #{moment(category.meta.updatedAt).format('MM/DD/YYYY')}
+							td: a(target="_blank",href="/admin/movie/detail/#{category._id}") 查看
+							td: a(target="_blank",href="/admin/movie/update/#{category._id}") 修改
+							td
+								button.btn.btn-danger.del(type="button",data-id="#{category._id}") 删除
+	script(src='/js/admin.js')

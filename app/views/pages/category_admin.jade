@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			form.form-horizontal(method="post",action="/admin/category/save")
+				//- input(type="hidden",value="#{category._id}" name ="category[_id]")
+				.form-group
+					lable.col-sm-3.control-lable(for="inputName") 分类名称
+					.col-sm-10
+						input#inputName.form-control(type="text",name="category[name]",value="#{category.name}")
+				.form-group
+					lable.col-sm-3.control-lable(for="inputSort") 分类序号
+					.col-sm-10
+						input#inputSort.form-control(type="text",name="category[sort]",value="#{category.sort}")
+				button.btn.btn-default(type="submit") 导入
+

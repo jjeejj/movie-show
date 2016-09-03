@@ -1,0 +1,55 @@
+.container
+	.row
+		.page-header.clearfix
+			.col-md-4
+				h1 #{title}
+			.col-md-8
+				form(action="/index/searchAndPage",method="get")
+					.input-group.col-sm-4.pull-right
+						input.form-control(type="text",name="search")
+						span.input-group-btn
+							button.btn.btn-default(type="submit") 搜索
+.navbar.navbar-default.navbar-fixed-bottom
+	.container
+		.navbarheader
+			a.navbar-brand(href="/") 分类首页
+		if user
+			p.navbar-text.navbar-right
+				span 欢迎你，#{user.name}
+				span &nbsp; | &nbsp;
+				a.navbar-link(href="/user/logout") 登出
+		else
+			p.navbar-text.navbar-right
+				a.navbar-link(href="#",data-toggle="modal",data-target="#signupModal") 注册
+				span &nbsp; | &nbsp;
+				a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登录
+#signupModal.modal.fade
+	.modal-dialog
+		.modal-content
+			form(method="post",action="/user/signup")
+				.modal-header 注册
+				.modal-body
+					.form-group
+						label(for="siginName") 用户名
+						input#siginName.form-control(name="user[name]",type="text")
+					.form-group
+						label(for="siginPassword") 密码
+						input#siginPassword.form-control(name="user[password]",type="password")
+				.modal-footer
+					button.btn.btn-default(type="button",data-dismiss="modal") 关闭
+					button.btn.btn-success(type="submit") 提交
+#signinModal.modal.fade
+	.modal-dialog
+		.modal-content
+			form(method="post",action="/user/signin")
+				.modal-header 登录
+				.modal-body
+					.form-group
+						label(for="siginName") 用户名
+						input#siginName.form-control(name="user[name]",type="text")
+					.form-group
+						label(for="siginPassword") 密码
+						input#siginPassword.form-control(name="user[password]",type="password")
+				.modal-footer
+					button.btn.btn-default(type="button",data-dismiss="modal") 关闭
+					button.btn.btn-success(type="submit") 提交

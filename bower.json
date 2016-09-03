@@ -1,0 +1,26 @@
+{
+  "name": "movie-show",
+  "description": "show movie",
+  "main": "app.js",
+  "authors": [
+    "jjeejj"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "jjeejj",
+    "movie"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
