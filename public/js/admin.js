@@ -6,18 +6,19 @@
 ;$(function () {
 	$('.del').click(function (e) {
 		var target = $(e.target)
-		debugger;
-
+		// debugger;
+		console.log('delete----------------------------');
 		var id = target.data('id')
 
 		var tr = $('.item-id-'+id)
 
 		//删除操作
 		$.ajax({
-			type:'DELETE',
+			method:'DELETE',
+			dataType:'json',
 			url:'/admin/movie/list?id='+id
-		})
-		.done(function (results) {
+		}).done(function (results) {
+			console.log('results============',results);
 			if(results.success === 1){
 				if(tr.length >0){
 					tr.remove()

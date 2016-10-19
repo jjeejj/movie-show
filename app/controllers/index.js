@@ -6,7 +6,6 @@ var Category = require('../models/category');
 
 exports.index = function (req,res) {
 	console.log('req.session.user',req.session.user);
-	
 	//查询所有电影的记录
 	//所有分类进行遍历
 	Category.fetch(function (err,categories) {
@@ -28,9 +27,9 @@ exports.index = function (req,res) {
 /**
  * 电影分页
  * 电影搜索翻页
- * @param  {[type]} req 
+ * @param  {[type]} req
  * @param  {[type]} res
- * @return {[type]}    
+ * @return {[type]}
  */
 exports.searchAndPage = function (req,res) {
 	// console.log('req.session.user',req.session.user);
@@ -53,14 +52,14 @@ exports.searchAndPage = function (req,res) {
 					}
 					var category = categories[0] || {};
 
-					
+
 					var movies = category.movies || [];
 					//手动控制分页，开始查询的位置
 					var result = movies.slice(index,index + page_count);//[start,end)
-					
+
 					// console.log('totalPage:-----------------------',Math.ceil(movies.length / page_count));
 					// console.log('queryString: ','cateId='+cateId);
-					
+
 					res.render('index_result',{
 						title:'结果列表',
 						currentPage:(page+1),//当前页码
@@ -70,7 +69,7 @@ exports.searchAndPage = function (req,res) {
 						movies:result //直接传过去的是电影数组
 						// result:result
 					})
-				})	
+				})
 	}else if(search){ // 电影名称搜索
 		Movie.find({title:new RegExp(search,'i')})
 			 .exec(function (err,movies) {

@@ -24,7 +24,7 @@ mongoose.connect(dbUrl);
 
 // dbConnc.on('error',function (err){
 // 	console.log('connection error');
-// }); 
+// });
 
 /**
  * 测试连接数据库是否成功
@@ -68,7 +68,7 @@ if('development' === env){
 	app.set('showStrackError',true);
 	app.use(logger('dev'));
 	app.locals.pretty = true;
-	// mongoose.set('debug',true); //是否开启mongoose查询打印日志
+	mongoose.set('debug',true); //是否开启mongoose查询打印日志
 }
 app.listen(port)
 

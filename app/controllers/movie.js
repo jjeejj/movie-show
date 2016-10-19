@@ -253,16 +253,16 @@ exports.list = function (req,res) {
 // app.delete('/admin/movie/list',)
 exports.del = function (req,res) {
 	var id = req.query.id;
-	console.log('delete id',id);
+	console.log('delete id======================',id);
 	if(id){
 		Movie.remove({_id:id},function (err,movie) {
 			if(err){
-			console.log(err);
-			}else{
-			//重定向到列表页面
-			// res.redirect('/admin/list')
-			res.json({success:1})
+				console.log(err);
+				return;
 			}
+			// ajax删除操作
+			console.log('delete success-----------------------------');
+			return res.json({"success":1});
 		})
 	}
 }

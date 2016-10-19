@@ -135,3 +135,27 @@ exports.adminRequired = function (req,res,next) {
 	}
 	next();
 }
+
+/**
+ * 更新用户信息页面
+ */
+
+exports.updatePage = function (req,req) {
+	
+}
+
+/**
+ * 保存更新的用户信息
+ */
+
+exports.updateSave = function (req,res) {
+	
+}
+
+/**
+ * 删除用户信息
+ */
+
+exports.del = function (req,res) {
+	
+}
