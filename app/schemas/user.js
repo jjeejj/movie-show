@@ -25,8 +25,8 @@ var UserSchema = new mongoose.Schema({
 	 * 
 	 */
 	role:{
-		type:Number,
-		dafault:0
+		type: Number,
+		default: 0
 	},
 	meta: {
 		createAt:{
